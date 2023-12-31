@@ -7,16 +7,17 @@ body {
     font-size: 1.5em;
 }
 
-li{
+p{
     margin: 25px;
     list-style: none;
+    
 }
 .linkDiv {
     margin: 25px;
 }
 .card {
     margin: 15px;
-    max-width: 800px;
+    
 }
 .cmnd{
     color: purple;

@@ -23,7 +23,7 @@
             <p>Congratulations! You have successfully installed and set up Webpack for your project.<br>Note: This is a basic setup to get you started with Webpack. As your project grows, you may need to configure additional loaders, plugins, or other features provided by Webpack to handle different file types and optimize your build process.</p>
           <div class="linkDiv flexCol">
             <a href="https://webpack.js.org/concepts/">Webpack Concepts</a>
-            <a href="">github webpack template</a>
+            <a href="https://github.com/dielawn/webpack-proj-template">github webpack template</a>
           </div>
             
 
@@ -59,13 +59,32 @@
 
         <div class="card" id="gitDiv">
             <h2>Git</h2>
-            <h3>Create New Repository</h3>
-            <h3>Clone Repository</h3>
-            <h3>Git Branches</h3>
-                <h4>branch</h4>
-                <h4>merge</h4>
-                <h4>pull</h4>
-                <h4>push</h4>
+            
+                <h3>Clone</h3>
+                <p>To download a repository, you use the git clone command followed by the URL of the repository you want to clone. For example:<br><span class="cmnd">git clone https://github.com/example/repo.git</span><br>This creates a copy of the repository on your local machine.</p>
+                <h3>Branch</h3>
+                <p>Before making changes, it's a good practice to create a new branch. A branch is like a parallel universe where you can make changes without affecting the main codebase. Create a new branch using:<br><span class="cmnd">git checkout -b your-branch-name</span></p>
+                <h3>Add & Commit</h3>
+                <p>After making changes, you need to stage the changes using the git add command. This tells Git that you want to include these changes in the next commit.<br><span class="cmnd">git add -A</span><br>After staging changes, you can commit them with a message explaining the changes using:<br><span class="cmnd">git commit -m <em>"Your commit message here"</em></span></p>
+                <h3>Push</h3>
+                <p>To push your changes to your own repository, you first need to add your repository as a remote. This is usually done when you clone, but if not, you can add it with:<br><span class="cmnd">git remote add origin https://github.com/your-username/your-repo.git</span><br>Replace the URL with your repository URL.<br>Finally, push your changes to your repository:<br><span class="cmnd">git push -u origin <em>your-branch-name</em></span><br>This will push your changes to the branch you created.</p>
+            
+                
+                <h3>Create New Repository</h3>
+                    <p>Go to your GitHub account and click on the "+" sign in the upper-right corner.<br>Select "New repository."<br>Follow the instructions to set up your new repository, including adding a name, description, and other optional settings.</p>
+                    <p>Link Your Local Repository to the Remote GitHub Repository:<br>After creating the repository on GitHub, you'll see a set of instructions, including a command to add a remote. Copy and paste this command in your terminal:<br><span class="cmnd">git remote add origin https://github.com/your-username/your-repo.git</span></p>
+                    <p>Push Your Changes to GitHub:<br>Now that you have linked your local repository to the GitHub repository, you can push your changes to GitHub:<br><span class="cmnd">git push -u origin your-branch-name</span></p>
+            
+                <h3>Merge</h3>
+                    <p>Ensure Your Branch is Up-to-Date:<br>You can do this by switching to the main branch and pulling the latest changes:<br><span class="cmnd">git checkout main<br>git pull origin main</span></p>
+                    <p>Switch to Your Feature Branch:<br><span class="cmnd">git checkout <em>your-feature-branch</em></span></p>
+                    <p>Rebase (Optional):<br>If you want to incorporate the latest changes from the main branch into your feature branch and resolve any potential conflicts before merging, you can use the rebase command:<br><span class="cmnd">git rebase main</span></p>
+                    <p>Merge Your Changes into the Main Branch:<br><span class="cmnd">git checkout main<br>git merge <em>your-feature-branch</em></span></p>
+                    <p>Resolve Conflicts (If Any):<br> Open each conflicted file, resolve the conflicts, and then mark them as resolved<br><span class="cmnd">git add <em>conflicted-file1 conflicted-file2</em><br>git merge --continue</span></p>
+                    <p>Commit the Merge:<br> <span class="cmnd">git commit -m<em> "Merge branch 'your-feature-branch' into main"</em></span></p>
+                    <p>Push Changes to GitHub:<br> <span class="cmnd">git push origin main</span></p>
+                    <p>Now, your changes from the feature branch are merged into the main branch. It's important to note that this process assumes you have the necessary permissions to push changes to the main branch. If you don't, you might need to create a pull request and have the changes reviewed before merging.</p>
+        
 
         </div>
 
