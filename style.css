@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-size: 1.5em;
+}
+
+li{
+    margin: 25px;
+    list-style: none;
+}
+.linkDiv {
+    margin: 25px;
+}
+.card {
+    margin: 15px;
+    max-width: 800px;
+}
+.cmnd{
+    color: purple;
+    margin: 50px;
+}
+.code {
+    color: brown;
+}
+.flex {
+    display: flex;
+}
+.flexCol{
+    display: flex;
+    flex-direction: column;
+}

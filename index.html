@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Resources</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header class="header"> <h1>Dev Resources</h1></header>
+        <div class="card" id="webpackDiv">
+            <h2>Webpack</h2>
+            <ul>
+                <li>Step 1: Set up a new project Create a new directory for your project and navigate to it in your terminal.<br><span class="cmnd"> mkdir my-webpack-project </span><br> <span class="cmnd">cd my-webpack-project</span></li>
+                <li>Step 2: Initialize the project Initialize a new Node.js project by running the following command and following the prompts: <br><span class="cmnd">npm init</span><br> This will create a package.json file in your project directory to manage your project dependencies.</li>
+                <li>Step 3: Install Webpack To install Webpack, run the following command:<br><span class="cmnd">npm install webpack webpack-cli --save-dev</span><br>This will install Webpack and its command-line interface (CLI) as dev dependencies in your project.</li>
+                <li>Step 4: Create a basic configuration file named webpack.config.js in your project directory. This file will contain the configuration for Webpack. <br><span class="cmnd">code webpack.config.js</span><br>Copy following into webpack.config.js<br><br><span class="code">const path = require('path');<br>module.exports = {<br>mode: 'development',<br>devtool: 'source-map',<br>entry: './src/app.js',<br>output: {<br>path: path.resolve(__dirname, 'dist'),<br>filename: 'bundle.js',<br>},<br>resolve: {<br>modules: [<br>path.resolve(__dirname, 'src'),<br>'node_modules',<br>],<br>extensions: ['.js'],<br>fallback: {<br>},<br>},<br>};</span><br><br>This configuration sets the entry point of your application (./src/app.js) and the output file (bundle.js) in the dist directory.</li>
+                <li>Step 5: Create a sample JavaScript file Create a new directory named src in your project directory, and inside it, create a file named app.js. This will be your main JavaScript file.<br> <span class="cmnd">code src/app.js</span></li>
+                <li>Step 6: Build your project To build your project using Webpack, you can run the following command:<br><span class="cmnd">npx webpack</span><br>This command will bundle your code based on the configuration in webpack.config.js and create a bundle.js file in the dist directory.</li>
+                <li>Step 7: Test your build You can now test your build by opening the index.html file in your browser and checking the console. Make sure you have an index.html file that includes the bundle.js file.</li>
+            </ul>
+            <p>Congratulations! You have successfully installed and set up Webpack for your project.<br>Note: This is a basic setup to get you started with Webpack. As your project grows, you may need to configure additional loaders, plugins, or other features provided by Webpack to handle different file types and optimize your build process.</p>
+          <div class="linkDiv flexCol">
+            <a href="https://webpack.js.org/concepts/">Webpack Concepts</a>
+            <a href="">github webpack template</a>
+          </div>
+            
+
+        </div>
+        <div class="card" id="babelDiv">
+            <h2>Babel</h2>
+            <p>Note: Install webpack first</p>
+            <ul>
+                <li>Step 1: <span class="cmnd">npm install --save-dev @babel/core @babel/preset-env</span></li>
+                <li>Step 2: Create ‘.babelrc’ in root directory<br><span class="cmnd">code .babelrc</span></li>
+                <li>Step 3: Copy to .babelrc<br><span class="code">{<br>"presets": ["@babel/preset-env"]<br>}</span></li>
+                <li>Step 4: <span class="cmnd">npm install --save-dev babel-loader</span></li>
+                <li>Step 5: Add to webpack.config.js<br><span class="code">module: {<br>rules: [<br>{<br>test: /\.js$/,<br>exclude: /node_modules/,<br>use: {<br>loader: 'babel-loader',<br>},<br>},<br>],<br>},</span></li>
+                <li><span class="cmnd">npx webpack</span></li>
+            </ul>
+            <p>Congratulations! You have successfully installed babel</p>
+            <div class="linkDiv flexCol">
+                <a href="https://babeljs.io/">Babeljs.io</a>
+            </div>
+        </div>
+        <div class="card" id="apiDiv">
+            <h2>API</h2>
+            <div class="card" id="getApi">
+                <h3>GET</h3>
+               <p class="code">async function getData(url, apikey, content_type) {<br>const headers = new Headers()<br>(apikey) {<br>headers.append('X-Api-Key', apikey)<br>}<br>if (content_type) {<br>headers.append('Content-type', content_type)<br>}<br>try {<br>const response = await fetch(url, {<br>method: 'GET',<br>headers: headers,<br>})<br>if (!response.ok) {<br>throw new Error(`Failed to fetch data. Status: ${response.status}`)<br>}<br>return await response.text()<br>} catch (error) {<br>throw new Error(`Eroor fetching data. Status: ${error.message}`)<br>}<br>}</p>
+            </div>
+            <div class="card" id="postApi">
+                <h3>POST</h3>
+                <p class="code">async function postJson(url, apikey, content_type, json) {<br>try {<br>const response = await fetch(url, {<br>method: 'POST',<br>headers: {<br>'Content-Type': content_type,<br>'X-Api-Key': apikey,<br>},<br>body: json,<br>})<br>if (!response.ok) {<br>throw new Error(`Failed to post data. Status: ${response.status}`)<br>}<br>const jsonResponse = await response.json()<br>return jsonResponse<br>} catch (error) {<br>console.error(`Error posting data: ${error.message}`)<br>throw error<br>}<br>}</p>
+            </div>
+            <div class="linkDiv flexCol"><a href="">github GET POST .js</a></div>
+        </div>
+
+        <div class="card" id="gitDiv">
+            <h2>Git</h2>
+            <h3>Create New Repository</h3>
+            <h3>Clone Repository</h3>
+            <h3>Git Branches</h3>
+                <h4>branch</h4>
+                <h4>merge</h4>
+                <h4>pull</h4>
+                <h4>push</h4>
+
+        </div>
+
+        <div class="card" id="cssDiv">
+            <h2>CSS</h2>
+
+            <div class="innerCard" id="displayGridDiv">
+                <h3>Display <em>grid</em></h3>
+            </div>
+
+            <div class="innerCard" id="displayFlexDiv">
+                <h3>Display <em>flex</em></h3>
+            </div>
+
+        </div>
+        <div class="card" id="reactDiv"><h2>React</h2></div>
+
+        <div class="card" id="a11yDiv"><h2>Accessibility</h2></div>
+
+<footer><h2>Footer stuff here</h2></footer>
+</body>
+</html>
