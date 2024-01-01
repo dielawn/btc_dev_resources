@@ -12,14 +12,12 @@ document.querySelectorAll('.showHideBtn').forEach(button => {
 
 const colorDivs = document.querySelectorAll('.keyColor')
 colorDivs.forEach(div => {
-    console.log(div)
     div.classList.add(div.id)
     div.textContent = `${div.id}`
 
 })
 
-const subSHBtns = document.querySelectorAll('.subSHBtn')
-subSHBtns.forEach(button => {
+document.querySelectorAll('.subSHBtn').forEach(button => {
     document.getElementById(button.dataset.btncntrl).classList.toggle('hide')
     button.addEventListener('click', () => {
         document.querySelectorAll('.innerCard').forEach(div => {
@@ -28,3 +26,5 @@ subSHBtns.forEach(button => {
         document.getElementById(button.dataset.btncntrl).classList.toggle('hide')
     })
 })
+
+document.getElementById('satsFont').innerText = ` <i class="fak fa-light"></i>`
