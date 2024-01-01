@@ -34,6 +34,9 @@ p{
 .css {
     color: darkolivegreen;
 }
+.html{
+    color: midnightblue;
+}
 .flex {
     display: flex;
 }
@@ -69,7 +72,8 @@ li{
 h2,
 #code,
 #cmnd,
-#css{
+#css,
+#html{
     margin: 0;
     padding: 20px;
     font-size: 1.5em;

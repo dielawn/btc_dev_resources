@@ -28,3 +28,4 @@ document.querySelectorAll('.subSHBtn').forEach(button => {
 })
 
 document.getElementById('satsFont').innerText = ` <i class="fak fa-light"></i>`
+document.getElementById('satsFontScript').innerText = `<script src="https://kit.fontawesome.com/090ca49637.js" crossorigin="anonymous"></script>` 

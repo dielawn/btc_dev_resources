@@ -10,7 +10,7 @@
 </head>
 <body>
     <header class="header"> <h1>HTF did I do that?</h1></header>
-    <div class="keydiv flex" id="keyDiv"><h2>Key:</h2><p class="keyColor" id="code"></p><p class="keyColor" id="cmnd"></p><p class="keyColor" id="css"></p></div>
+    <div class="keydiv flex" id="keyDiv"><h2>Key:</h2><p class="keyColor" id="cmnd"></p><p class="keyColor" id="code"></p><p class="keyColor" id="css"></p><p class="keyColor" id="html"></p></div>
         <button class="showHideBtn" id="webpackSHBtn" data-btnCntrl="webpackDiv" >Webpack</button>
         <button class="showHideBtn" id="babelSHBtn" data-btnCntrl="babelDiv">Babel</button>
         <button class="showHideBtn" id="apiSHBtn" data-btnCntrl="apiDiv">API</button>
@@ -26,7 +26,7 @@
                 <li>Step 1:<br><br> Set up a new project Create a new directory for your project and navigate to it in your terminal.<br><br><span class="cmnd"> mkdir my-webpack-project </span><br> <span class="cmnd">cd my-webpack-project</span></li><br>
                 <li>Step 2: <br><br>Initialize the project Initialize a new Node.js project by running the following command and following the prompts:<br><br><span class="cmnd">npm init</span><br><br> This will create a package.json file in your project directory to manage your project dependencies.</li><br>
                 <li>Step 3: <br><br>Install Webpack To install Webpack, run the following command:<br><br><span class="cmnd">npm install webpack webpack-cli --save-dev</span><br><br>This will install Webpack and its command-line interface (CLI) as dev dependencies in your project.</li><br>
-                <li>Step 4: <br><br>Create a basic configuration file named webpack.config.js in your project directory. This file will contain the configuration for Webpack. <br><br><span class="cmnd">code webpack.config.js</span><br><br>Copy following into webpack.config.js<br><br><span class="code">const path = require('path');<br>module.exports = {<br>mode: 'development',<br>devtool: 'source-map',<br>entry: './src/app.js',<br>output: {<br>path: path.resolve(__dirname, 'dist'),<br>filename: 'bundle.js',<br>},<br>resolve: {<br>modules: [<br>path.resolve(__dirname, 'src'),<br>'node_modules',<br>],<br>extensions: ['.js'],<br>fallback: {<br>},<br>},<br>};</span><br><br>This configuration sets the entry point of your application (./src/app.js) and the output file (bundle.js) in the dist directory.</li><br>
+                <li>Step 4: <br><br>Create a basic configuration file named webpack.config.js in your project directory. This file will contain the configuration for Webpack. <br><br><span class="cmnd">code webpack.config.js</span><br><br>Copy following into webpack.config.js<br><br><code class="code">const path = require('path');<br>module.exports = {<br>mode: 'development',<br>devtool: 'source-map',<br>entry: './src/app.js',<br>output: {<br>path: path.resolve(__dirname, 'dist'),<br>filename: 'bundle.js',<br>},<br>resolve: {<br>modules: [<br>path.resolve(__dirname, 'src'),<br>'node_modules',<br>],<br>extensions: ['.js'],<br>fallback: {<br>},<br>},<br>};</code><br><br>This configuration sets the entry point of your application (./src/app.js) and the output file (bundle.js) in the dist directory.</li><br>
                 <li>Step 5: <br><br>Create a sample JavaScript file Create a new directory named src in your project directory, and inside it, create a file named app.js. This will be your main JavaScript file.<br> <br><span class="cmnd">code src/app.js</span></li><br>
                 <li>Step 6: <br><br>Build your project To build your project using Webpack, you can run the following command:<br><br><span class="cmnd">npx webpack</span><br><br>This command will bundle your code based on the configuration in webpack.config.js and create a bundle.js file in the dist directory.</li><br>
                 <li>Step 7: <br><br>Test your build You can now test your build by opening the index.html file in your browser and checking the console. Make sure you have an index.html file that includes the bundle.js file.</li><br>
@@ -46,9 +46,9 @@
             <ul>
                 <li>Step 1: <br><br><span class="cmnd">npm install --save-dev @babel/core @babel/preset-env</span></li><br>
                 <li>Step 2:<br><br> Create ‘.babelrc’ in root directory<br><br><span class="cmnd">code .babelrc</span></li><br>
-                <li>Step 3:<br><br> Copy to .babelrc<br><br><span class="code">{<br>"presets": ["@babel/preset-env"]<br>}</span></li><br>
+                <li>Step 3:<br><br> Copy to .babelrc<br><br><code class="code">{<br>"presets": ["@babel/preset-env"]<br>}</code></li><br>
                 <li>Step 4:<br><br> <span class="cmnd">npm install --save-dev babel-loader</span></li><br>
-                <li>Step 5:<br><br> Add to webpack.config.js<br><br><span class="code">module: {<br>rules: [<br>{<br>test: /\.js$/,<br>exclude: /node_modules/,<br>use: {<br>loader: 'babel-loader',<br>},<br>},<br>],<br>},</span></li><br>
+                <li>Step 5:<br><br> Add to webpack.config.js<br><br><code class="code">module: {<br>rules: [<br>{<br>test: /\.js$/,<br>exclude: /node_modules/,<br>use: {<br>loader: 'babel-loader',<br>},<br>},<br>],<br>},</code></li><br>
                 <li><span class="cmnd">npx webpack</span></li><br>
             </ul>
             <p>Congratulations! You have successfully installed babel</p>
@@ -62,11 +62,11 @@
             <h2>API</h2>
             <div class="innerCard" id="getApi">
                 <h3>GET</h3>
-               <p class="code">async function getData(url, apikey, content_type) {<br>const headers = new Headers()<br>(apikey) {<br>headers.append('X-Api-Key', apikey)<br>}<br>if (content_type) {<br>headers.append('Content-type', content_type)<br>}<br>try {<br>const response = await fetch(url, {<br>method: 'GET',<br>headers: headers,<br>})<br>if (!response.ok) {<br>throw new Error(`Failed to fetch data. Status: ${response.status}`)<br>}<br>return await response.text()<br>} catch (error) {<br>throw new Error(`Eroor fetching data. Status: ${error.message}`)<br>}<br>}</p>
+               <code class="code">async function getData(url, apikey, content_type) {<br>const headers = new Headers()<br>(apikey) {<br>headers.append('X-Api-Key', apikey)<br>}<br>if (content_type) {<br>headers.append('Content-type', content_type)<br>}<br>try {<br>const response = await fetch(url, {<br>method: 'GET',<br>headers: headers,<br>})<br>if (!response.ok) {<br>throw new Error(`Failed to fetch data. Status: ${response.status}`)<br>}<br>return await response.text()<br>} catch (error) {<br>throw new Error(`Eroor fetching data. Status: ${error.message}`)<br>}<br>}</code>
             </div>
             <div class="innerCard" id="postApi">
                 <h3>POST</h3>
-                <p class="code">async function postJson(url, apikey, content_type, json) {<br>try {<br>const response = await fetch(url, {<br>method: 'POST',<br>headers: {<br>'Content-Type': content_type,<br>'X-Api-Key': apikey,<br>},<br>body: json,<br>})<br>if (!response.ok) {<br>throw new Error(`Failed to post data. Status: ${response.status}`)<br>}<br>const jsonResponse = await response.json()<br>return jsonResponse<br>} catch (error) {<br>console.error(`Error posting data: ${error.message}`)<br>throw error<br>}<br>}</p>
+                <code class="code">async function postJson(url, apikey, content_type, json) {<br>try {<br>const response = await fetch(url, {<br>method: 'POST',<br>headers: {<br>'Content-Type': content_type,<br>'X-Api-Key': apikey,<br>},<br>body: json,<br>})<br>if (!response.ok) {<br>throw new Error(`Failed to post data. Status: ${response.status}`)<br>}<br>const jsonResponse = await response.json()<br>return jsonResponse<br>} catch (error) {<br>console.error(`Error posting data: ${error.message}`)<br>throw error<br>}<br>}</code>
             </div>
             <div class="linkDiv flexCol"><a href="">github GET POST .js</a></div>
         </div>
@@ -173,12 +173,17 @@
 
         <div class="card" id="graphicsDiv">
             <h2>Fonts</h2>
-           
-            <i id="satsFont" class="fak fa-light"></i>
+            <code class="html" id="satsFontScript"></code><br>
+            <code id="satsFont" class="html"></code><br>
+            <i class="fak fa-light"></i><br>
             <a href="https://satsymbol.com/">Sats Symbol</a>
+
+            <h2>Satcomma #</h2>
+            <p>The “Satcomma standard” (well explained by Mark Nugent and ProgrammableTX) is a proposal that suggests adjustment of digit group separators for better readability of small bitcoin fractions, as follows:<br><br>0.000 250 00 bitcoin<br>0.00 025 000 bitcoin</p>
+            <h2>Unicode</h2>
             <p>&#x20BF; Unicode symbol: &amp;#x20BF;</p>
             <p>&#8383; Unicode symbol: &amp;#8383;</p>
-
+            <h2>Units</h2>
             <table>
                 <thead><tr><th>Unit</th><th>Symbol</th><th>BTC value</th></tr></thead>
                 <tbody>
@@ -189,13 +194,11 @@
                 <tr><td>millisatoshi</td><td>msat</td><td>0.00000000001</td></tr>
             </tbody>
             </table>
-
-
-            <h2>Icons</h2>
-            
+            <h2>Icons</h2>            
             <a href="https://github.com/shocknet"><img class="iconGroup" src="https://user-images.githubusercontent.com/1653275/90460053-6ed1f500-e0d9-11ea-8179-9ab80354f586.png" alt="shocknet"></a>
             <a href="https://commons.wikimedia.org/wiki/File:Lightning_Network.svg"><img  class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Lightning_Network.svg" alt="lightning logo"></a>
             <a href="https://bitcoin.design/assets/images/guide/getting-started/visual-language/bitboy-2011.png"><img src="https://bitcoin.design/assets/images/guide/getting-started/visual-language/bitboy-2011.png" alt="bitcoin bitboy logo"></a>
+            <h2>Colors</h2>
             <h2>Memes</h2>
             <h2>Gif</h2>
         </div>
