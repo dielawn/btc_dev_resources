@@ -5,8 +5,12 @@
 }
 body {
     font-size: 1.5em;
+    padding: 150px;
+    min-height: 100vh;
 }
-
+div {
+    padding: 50px;
+}
 p{
     margin: 25px;
     list-style: none;
@@ -15,6 +19,7 @@ p{
 .linkDiv {
     margin: 25px;
 }
+
 .card {
     margin: 15px;
     
@@ -26,10 +31,46 @@ p{
 .code {
     color: brown;
 }
+.css {
+    color: darkolivegreen;
+}
 .flex {
     display: flex;
 }
 .flexCol{
     display: flex;
     flex-direction: column;
+}
+.hide{
+    display: none;
+}
+button{
+    cursor: pointer;
+}
+button:hover {
+    background-color: black;
+    color: white;
+}
+.subSHBtn{
+    padding: 20px;
+    background-color: transparent;
+    font-size: .8em;
+}
+.showHideBtn {
+    padding: 20px;
+    background-color: transparent;
+    font-size: 1.2em;
+}
+li{
+    list-style: none;
+}
+
+
+h2,
+#code,
+#cmnd,
+#css{
+    margin: 0;
+    padding: 20px;
+    font-size: 1.5em;
 }

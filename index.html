@@ -5,17 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dev Resources</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <header class="header"> <h1>Dev Resources</h1></header>
-        <div class="card" id="webpackDiv">
+    <header class="header"> <h1>HTF did I do that?</h1></header>
+    <div class="keydiv flex" id="keyDiv"><h2>Key:</h2><p class="keyColor" id="code"></p><p class="keyColor" id="cmnd"></p><p class="keyColor" id="css"></p></div>
+        <button class="showHideBtn" id="webpackSHBtn" data-btnCntrl="webpackDiv" >Webpack</button>
+        <button class="showHideBtn" id="babelSHBtn" data-btnCntrl="babelDiv">Babel</button>
+        <button class="showHideBtn" id="apiSHBtn" data-btnCntrl="apiDiv">API</button>
+        <button class="showHideBtn" id="gitSHBtn" data-btnCntrl="gitDiv">Git</button>
+        <button class="showHideBtn" id="cssSHBtn" data-btnCntrl="cssDiv">CSS</button>
+        <button class="showHideBtn" id="reactSHBtn" data-btnCntrl="reactDiv">React</button>
+        <button class="showHideBtn" id="a11ySHBtn" data-btnCntrl="a11yDiv">Accessibility</button>
+        <button class="showHideBtn" id="linkSHBtn" data-btnCntrl="linkDiv">Links</button>
+        <div class="card" id="webpackDiv" >
             <h2>Webpack</h2>
             <ul>
                 <li>Step 1: Set up a new project Create a new directory for your project and navigate to it in your terminal.<br><span class="cmnd"> mkdir my-webpack-project </span><br> <span class="cmnd">cd my-webpack-project</span></li>
                 <li>Step 2: Initialize the project Initialize a new Node.js project by running the following command and following the prompts: <br><span class="cmnd">npm init</span><br> This will create a package.json file in your project directory to manage your project dependencies.</li>
                 <li>Step 3: Install Webpack To install Webpack, run the following command:<br><span class="cmnd">npm install webpack webpack-cli --save-dev</span><br>This will install Webpack and its command-line interface (CLI) as dev dependencies in your project.</li>
-                <li>Step 4: Create a basic configuration file named webpack.config.js in your project directory. This file will contain the configuration for Webpack. <br><span class="cmnd">code webpack.config.js</span><br>Copy following into webpack.config.js<br><br><span class="code">const path = require('path');<br>module.exports = {<br>mode: 'development',<br>devtool: 'source-map',<br>entry: './src/app.js',<br>output: {<br>path: path.resolve(__dirname, 'dist'),<br>filename: 'bundle.js',<br>},<br>resolve: {<br>modules: [<br>path.resolve(__dirname, 'src'),<br>'node_modules',<br>],<br>extensions: ['.js'],<br>fallback: {<br>},<br>},<br>};</span><br><br>This configuration sets the entry point of your application (./src/app.js) and the output file (bundle.js) in the dist directory.</li>
+                <li>Step 4: Create a basic configuration file named webpack.config.js in your project directory. This file will contain the configuration for Webpack. <br><span class="cmnd">code webpack.config.js</span><br>Copy following into webpack.config.js<br><span class="code">const path = require('path');<br>module.exports = {<br>mode: 'development',<br>devtool: 'source-map',<br>entry: './src/app.js',<br>output: {<br>path: path.resolve(__dirname, 'dist'),<br>filename: 'bundle.js',<br>},<br>resolve: {<br>modules: [<br>path.resolve(__dirname, 'src'),<br>'node_modules',<br>],<br>extensions: ['.js'],<br>fallback: {<br>},<br>},<br>};</span><br><br>This configuration sets the entry point of your application (./src/app.js) and the output file (bundle.js) in the dist directory.</li>
                 <li>Step 5: Create a sample JavaScript file Create a new directory named src in your project directory, and inside it, create a file named app.js. This will be your main JavaScript file.<br> <span class="cmnd">code src/app.js</span></li>
                 <li>Step 6: Build your project To build your project using Webpack, you can run the following command:<br><span class="cmnd">npx webpack</span><br>This command will bundle your code based on the configuration in webpack.config.js and create a bundle.js file in the dist directory.</li>
                 <li>Step 7: Test your build You can now test your build by opening the index.html file in your browser and checking the console. Make sure you have an index.html file that includes the bundle.js file.</li>
@@ -28,6 +37,7 @@
             
 
         </div>
+
         <div class="card" id="babelDiv">
             <h2>Babel</h2>
             <p>Note: Install webpack first</p>
@@ -42,21 +52,23 @@
             <p>Congratulations! You have successfully installed babel</p>
             <div class="linkDiv flexCol">
                 <a href="https://babeljs.io/">Babeljs.io</a>
+                <a href="https://github.com/dielawn/webpack-proj-template-w-babel">github webpack w/babel template</a>
             </div>
         </div>
+        
         <div class="card" id="apiDiv">
             <h2>API</h2>
-            <div class="card" id="getApi">
+            <div class="innerCard" id="getApi">
                 <h3>GET</h3>
                <p class="code">async function getData(url, apikey, content_type) {<br>const headers = new Headers()<br>(apikey) {<br>headers.append('X-Api-Key', apikey)<br>}<br>if (content_type) {<br>headers.append('Content-type', content_type)<br>}<br>try {<br>const response = await fetch(url, {<br>method: 'GET',<br>headers: headers,<br>})<br>if (!response.ok) {<br>throw new Error(`Failed to fetch data. Status: ${response.status}`)<br>}<br>return await response.text()<br>} catch (error) {<br>throw new Error(`Eroor fetching data. Status: ${error.message}`)<br>}<br>}</p>
             </div>
-            <div class="card" id="postApi">
+            <div class="innerCard" id="postApi">
                 <h3>POST</h3>
                 <p class="code">async function postJson(url, apikey, content_type, json) {<br>try {<br>const response = await fetch(url, {<br>method: 'POST',<br>headers: {<br>'Content-Type': content_type,<br>'X-Api-Key': apikey,<br>},<br>body: json,<br>})<br>if (!response.ok) {<br>throw new Error(`Failed to post data. Status: ${response.status}`)<br>}<br>const jsonResponse = await response.json()<br>return jsonResponse<br>} catch (error) {<br>console.error(`Error posting data: ${error.message}`)<br>throw error<br>}<br>}</p>
             </div>
             <div class="linkDiv flexCol"><a href="">github GET POST .js</a></div>
         </div>
-
+        
         <div class="card" id="gitDiv">
             <h2>Git</h2>
             
@@ -87,23 +99,57 @@
         
 
         </div>
-
+        
         <div class="card" id="cssDiv">
             <h2>CSS</h2>
-
+            <button class="subSHBtn" id="usefulCSSBtn" data-btnCntrl="commonStylesDiv">Common Stuff I Can't Remember</button>
+            <button class="subSHBtn" id="scrollCSSBtn" data-btnCntrl="scrollBarDiv">Scroll Bar</button>
+            <button class="subSHBtn" id="animationBtn" data-btnCntrl="animationDiv">Animations</button>
+            <button class="subSHBtn" id="gridBtn" data-btnCntrl="displayGridDiv">Grid</button>
+            <button class="subSHBtn" id="flexBtn" data-btnCntrl="displayFlexDiv">Flex</button>
+            <div class="innerCard" id="commonStylesDiv">
+                <h3>Useful but can't remember</h3>
+                <p class="css">background: linear-gradient(to bottom right, black, rgba(47, 47, 47, 0.326));</p>
+                <p class="css">box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.935);</p>
+            </div>
+            
+            <div class="innerCard" id="scrollBarDiv">
+                <h3>Scroll Bar</h3>
+                <p>/* width */<br><span class="css">::-webkit-scrollbar {<br>width: 10px;<br>}</span></p>
+                <p>/* Track */<br><span class="css">::-webkit-scrollbar-track {<br>background:  rgba(245, 245, 245, 0.487);<br>}</span></p>
+                <p>/* Handle */<br><span class="css">::-webkit-scrollbar-thumb {<br>background: #f2a900;<br>}</span></p>
+                <p>/* Handle on hover */<br><span class="css">::-webkit-scrollbar-thumb:hover {<br>background:#c68b01;<br>}</span></p>
+            </div>
+            
+            <div class="innerCard" id="animationDiv">
+                <h3>Animated menu bounce</h3>
+                <p class="css">.example {<br>animation: expand 500ms ease-in-out;<br>transform-origin: top;<br>}</p>
+                <p class="css">@keyframes expand {<br>0% {<br>transform: scaleY(0);<br>}<br><br>70% {<br>transform: scaleY(1.1);<br>}<br><br>100% {<br>transform: scaleY(1);<br>}<br>}</p>
+            </div>
+            
             <div class="innerCard" id="displayGridDiv">
                 <h3>Display <em>grid</em></h3>
+                <p>minmax() function the first value is the minimum size, the second is the maximum. By using 1fr as the maximum value the space is equally distributed.</p>
+                <p class="css"> grid-template-columns: repeat(auto-fill, minmax(200px, 1fr) );</p>
+                <a href="https://gridbyexample.com/examples/example28/">Responsive Grid</a>
+                <a href="https://css-tricks.com/snippets/css/complete-guide-grid/">Guide CSS Grid</a>
             </div>
-
+            
             <div class="innerCard" id="displayFlexDiv">
                 <h3>Display <em>flex</em></h3>
+                <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Guide CSS Flexbox</a>
             </div>
 
         </div>
+        
         <div class="card" id="reactDiv"><h2>React</h2></div>
-
+        
         <div class="card" id="a11yDiv"><h2>Accessibility</h2></div>
 
-<footer><h2>Footer stuff here</h2></footer>
+        <div class="card" id="linkDiv"><h2>Links</h2>
+        <a href="https://www.lopp.net/">Lopp.net</a>
+        </div>
+
+
 </body>
 </html>
